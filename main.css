@@ -1,0 +1,70 @@
+.board {
+  width: 360px;
+  height: 360px;
+  padding: 5px;
+  background-color: #baa;
+  border-radius: 7px;
+  outline: none;
+}
+
+.cell {
+  width: 80px;
+  height: 80px;
+  margin: 5px;
+  line-height: 80px;
+  display: inline-block;
+  font-size: 70px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 7px;
+}
+
+.cell0 {
+  background-color: #dcb;
+}
+
+.cell2 {
+  background-color: #eee;
+}
+
+.cell4 {
+  background-color: #eec;
+}
+
+.cell8 {
+  color: #ffe;
+  background-color: #fb8;
+}
+
+.cell16 {
+  color: #ffe;
+  background-color: #f96;
+}
+
+.cell32 {
+  color: #ffe;
+  background-color: #f75;
+}
+
+.cell64 {
+  color: #ffe;
+  background-color: #f53;
+}
+
+.cell128 {
+  color: #ffe;
+  background-color: #ec7;
+  font-size: 45px;
+}
+
+.cell256 {
+  color: #ffe;
+  background-color: #ec6;
+  font-size: 45px;
+}
+
+.cell512 {
+  color: #ffe;
+  background-color: #ec5;
+  font-size: 45px;
+}
