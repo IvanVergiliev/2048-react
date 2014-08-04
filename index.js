@@ -12,6 +12,9 @@ var BoardView = React.createClass({
       this.setState({board: this.state.board});
     }
   },
+  componentDidMount: function () {
+    this.getDOMNode().focus();
+  },
   render: function () {
     var rows = [];
     for (var row = 0; row < Board.size; ++row) {

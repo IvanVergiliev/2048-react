@@ -68,5 +68,3 @@ Board.prototype.move = function (direction) {
     this.addRandomTile();
   }
 };
-
-module.exports = Board;

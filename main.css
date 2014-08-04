@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Clear Sans";
+  src: url('clear-sans.ttf') format('truetype');
+}
+
 .board {
   width: 360px;
   height: 360px;
@@ -13,10 +18,12 @@
   margin: 5px;
   line-height: 80px;
   display: inline-block;
-  font-size: 70px;
+  font-size: 60px;
   text-align: center;
   vertical-align: middle;
   border-radius: 7px;
+  font-family: "Clear Sans";
+  color: #766;
 }
 
 .cell0 {
