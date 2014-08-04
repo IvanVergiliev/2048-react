@@ -4,21 +4,32 @@
 }
 
 .board {
-  width: 360px;
-  height: 360px;
+  width: 440px;
+  height: 440px;
   padding: 5px;
   background-color: #baa;
   border-radius: 7px;
   outline: none;
 }
 
+.board .cell {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
 .cell {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   margin: 5px;
-  line-height: 80px;
+  line-height: 90px;
   display: inline-block;
-  font-size: 60px;
+  font-size: 55px;
+  font-weight: bold;
   text-align: center;
   vertical-align: middle;
   border-radius: 7px;
@@ -74,4 +85,16 @@
   color: #ffe;
   background-color: #ec5;
   font-size: 45px;
+}
+
+.cell1024 {
+  color: #fff;
+  background-color: #ec3;
+  font-size: 35px;
+}
+
+.cell2048 {
+  color: #fff;
+  background-color: #ec2;
+  font-size: 35px;
 }
