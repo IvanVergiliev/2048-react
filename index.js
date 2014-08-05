@@ -16,14 +16,9 @@ var BoardView = React.createClass({
     this.getDOMNode().focus();
   },
   render: function () {
-    var rows = [];
-    for (var row = 0; row < Board.size; ++row) {
-      var columns = [];
-      for (var column = 0; column < Board.size; ++column) {
-        columns.push(<Cell value={this.state.board.cells[row][column]} />);
-      }
-      rows.push(<div>{columns}</div>);
-    }
+    var rows = this.state.board.cells.map(function (row) {
+      return <div>{row.map(function (value) {return <Cell value={value} />; })}</div>;
+    });
     return (
       <div className='board' onKeyUp={this.handleKeyUp} tabIndex="1">
         {rows}
@@ -34,8 +29,10 @@ var BoardView = React.createClass({
 
 var Cell = React.createClass({
   render: function () {
+    var classByValue = 'cell' + this.props.value;
+    var classes = React.addons.classSet('cell', classByValue);
     return (
-      <span className={'cell ' + 'cell' + this.props.value}>{this.props.value || ''}</span>
+      <span className={classes}>{this.props.value || ''}</span>
     );
   }
 });
