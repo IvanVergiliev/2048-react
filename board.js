@@ -11,12 +11,38 @@ var rotateLeft = function (matrix) {
   return res;
 };
 
+var Tile = function (value, row, column) {
+  this.value = value || 0;
+  this.row = row || -1;
+  this.column = column || -1;
+  this.oldRow = -1;
+  this.oldColumn = -1;
+  this.markForDeletion = false;
+  this.mergedInto = null;
+};
+
+Tile.prototype.moveTo = function (row, column) {
+  this.oldRow = this.row;
+  this.oldColumn = this.column;
+  this.row = row;
+  this.column = column;
+};
+
 var Board = function () {
+  this.tiles = [];
   this.cells = [];
   for (var i = 0; i < Board.size; ++i) {
-    this.cells[i] = [0, 0, 0, 0];
+    this.cells[i] = [this.addTile(), this.addTile(), this.addTile(), this.addTile()];
   }
   this.addRandomTile();
+  this.setPositions();
+};
+
+Board.prototype.addTile = function () {
+  var res = new Tile;
+  Tile.apply(res, arguments);
+  this.tiles.push(res);
+  return res;
 };
 
 Board.size = 4;
@@ -24,37 +50,55 @@ Board.size = 4;
 Board.prototype.moveLeft = function () {
   var hasChanged = false;
   for (var row = 0; row < Board.size; ++row) {
-    var currentRow = this.cells[row].filter(function (x) { return x != 0; });
+    var currentRow = this.cells[row].filter(function (tile) { return tile.value != 0; });
     var resultRow = [];
     for (var target = 0; target < Board.size; ++target) {
-      var targetValue = currentRow.shift() || 0;
-      if (currentRow[0] === targetValue) {
-        targetValue += currentRow.shift();
+      var targetTile = currentRow.length ? currentRow.shift() : this.addTile();
+      if (currentRow.length > 0 && currentRow[0].value == targetTile.value) {
+        var tile1 = targetTile;
+        targetTile = this.addTile(targetTile.value);
+        tile1.mergedInto = targetTile;
+        var tile2 = currentRow.shift();
+        tile2.mergedInto = targetTile;
+        targetTile.value += tile2.value;
       }
-      resultRow[target] = targetValue;
-      hasChanged |= (targetValue != this.cells[row][target]);
+      resultRow[target] = targetTile;
+      hasChanged |= (targetTile.value != this.cells[row][target].value);
     }
     this.cells[row] = resultRow;
   }
   return hasChanged;
 };
 
+Board.prototype.setPositions = function () {
+  this.cells.forEach(function (row, rowIndex) {
+    row.forEach(function (tile, columnIndex) {
+      tile.oldRow = tile.row;
+      tile.oldColumn = tile.column;
+      tile.row = rowIndex;
+      tile.column = columnIndex;
+      tile.markForDeletion = false;
+    });
+  });
+};
+
 Board.prototype.addRandomTile = function () {
   var emptyCells = [];
   for (var r = 0; r < Board.size; ++r) {
     for (var c = 0; c < Board.size; ++c) {
-      if (this.cells[r][c] == 0) {
+      if (this.cells[r][c].value == 0) {
         emptyCells.push({r: r, c: c});
       }
     }
   }
   var index = ~~(Math.random() * emptyCells.length);
   var cell = emptyCells[index];
-  this.cells[cell.r][cell.c] = 2;
+  this.cells[cell.r][cell.c] = this.addTile(2);
 };
 
 Board.prototype.move = function (direction) {
   // 0 -> left, 1 -> up, 2 -> right, 3 -> down
+  this.clearOldTiles();
   for (var i = 0; i < direction; ++i) {
     this.cells = rotateLeft(this.cells);
   }
@@ -65,4 +109,10 @@ Board.prototype.move = function (direction) {
   if (hasChanged) {
     this.addRandomTile();
   }
+  this.setPositions();
+};
+
+Board.prototype.clearOldTiles = function () {
+  this.tiles = this.tiles.filter(function (tile) { return tile.markForDeletion == false; });
+  this.tiles.forEach(function (tile) { tile.markForDeletion = true; });
 };

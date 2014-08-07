@@ -1,0 +1,8 @@
+@for $row from 0 through 3 {
+  @for $column from 0 through 3 {
+    .position_#{$row}_#{$column} {
+      top: 110 * $row + 5;
+      left: 110 * $column + 5;
+    }
+  }
+}

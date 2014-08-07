@@ -20,9 +20,10 @@ body {
   background-color: #baa;
   border-radius: 7px;
   outline: none;
+  position: relative;
 }
 
-.board .cell {
+.board .cell, .tile {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -32,7 +33,7 @@ body {
   cursor: default;
 }
 
-.cell {
+.cell, .tile {
   width: 100px;
   height: 100px;
   margin: 5px;
@@ -45,66 +46,91 @@ body {
   border-radius: 7px;
   font-family: "Clear Sans";
   color: #766;
-}
-
-.cell0 {
   background-color: #dcb;
 }
 
-.cell2 {
+.tile0 {
+  background-color: #dcb;
+}
+
+.tile2 {
   background-color: #eee;
 }
 
-.cell4 {
+.tile4 {
   background-color: #eec;
 }
 
-.cell8 {
+.tile8 {
   color: #ffe;
   background-color: #fb8;
 }
 
-.cell16 {
+.tile16 {
   color: #ffe;
   background-color: #f96;
 }
 
-.cell32 {
+.tile32 {
   color: #ffe;
   background-color: #f75;
 }
 
-.cell64 {
+.tile64 {
   color: #ffe;
   background-color: #f53;
 }
 
-.cell128 {
+.tile128 {
   color: #ffe;
   background-color: #ec7;
   font-size: 45px;
 }
 
-.cell256 {
+.tile256 {
   color: #ffe;
   background-color: #ec6;
   font-size: 45px;
 }
 
-.cell512 {
+.tile512 {
   color: #ffe;
   background-color: #ec5;
   font-size: 45px;
 }
 
-.cell1024 {
+.tile1024 {
   color: #fff;
   background-color: #ec3;
   font-size: 35px;
 }
 
-.cell2048 {
+.tile2048 {
   color: #fff;
   background-color: #ec2;
   font-size: 35px;
+}
+
+.tile {
+  position: absolute;
+}
+
+.tile.merged {
+  display: none;
+}
+
+.tile.new {
+  -webkit-animation-duration: 0.20s;
+  -webkit-animation-name: newTile;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes newTile {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
 }

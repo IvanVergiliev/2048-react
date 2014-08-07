@@ -5,7 +5,6 @@ var BoardView = React.createClass({
     return {board: new Board};
   },
   handleKeyUp: function (event) {
-    console.log(event);
     if (event.keyCode >= 37 && event.keyCode <= 40) {
       var direction = event.keyCode - 37;
       this.state.board.move(direction);
@@ -16,12 +15,18 @@ var BoardView = React.createClass({
     this.getDOMNode().focus();
   },
   render: function () {
-    var rows = this.state.board.cells.map(function (row) {
-      return <div>{row.map(function (value) {return <Cell value={value} />; })}</div>;
+    var cells = this.state.board.cells.map(function (row) {
+      return <div>{row.map(function (tile) {return <Cell value={tile.value} />; })}</div>;
+    });
+    var tiles = this.state.board.tiles.filter(function (tile) {
+      return tile.value != 0;
+    }).map(function (tile) {
+      return <TileView tile={tile} />;
     });
     return (
       <div className='board' onKeyUp={this.handleKeyUp} tabIndex="1">
-        {rows}
+        {cells}
+        {tiles}
       </div>
     );
   }
@@ -32,7 +37,34 @@ var Cell = React.createClass({
     var classByValue = 'cell' + this.props.value;
     var classes = React.addons.classSet('cell', classByValue);
     return (
-      <span className={classes}>{this.props.value || ''}</span>
+      <span className={classes}>{''}</span>
+    );
+  }
+});
+
+var TileView = React.createClass({
+  componentDidUpdate: function () {
+    if (this.props.tile.oldRow == -1) {
+      this.getDOMNode().offsetWidth = this.getDOMNode().offsetWidth;
+      this.getDOMNode().className += ' new';
+    }
+  },
+  componentDidMount: function () {
+    if (this.props.tile.oldRow == -1) {
+      this.getDOMNode().offsetWidth = this.getDOMNode().offsetWidth;
+      this.getDOMNode().className += ' new';
+    }
+  },
+  render: function () {
+    var tile = this.props.tile;
+    var classByValue = 'tile' + this.props.tile.value;
+    var classByPosition = 'position_' + tile.row + '_' + tile.column;
+    var classes = React.addons.classSet('tile', classByValue, classByPosition);
+    if (tile.mergedInto) {
+      classes += ' merged';
+    }
+    return (
+      <span className={classes}>{this.props.tile.value}</span>
     );
   }
 });
