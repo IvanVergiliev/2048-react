@@ -1,0 +1,141 @@
+@font-face {
+  font-family: "Clear Sans";
+  src: url('clear-sans.ttf') format('truetype'); }
+
+body {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+          align-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.board {
+  width: 440px;
+  height: 440px;
+  padding: 5px;
+  background-color: #baa;
+  border-radius: 7px;
+  outline: none;
+  position: relative; }
+
+.board .cell, .tile {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default; }
+
+.cell, .tile {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  line-height: 90px;
+  display: inline-block;
+  font-size: 55px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 7px;
+  font-family: "Clear Sans";
+  color: #766;
+  background-color: #dcb; }
+
+.tile0 {
+  background-color: #dcb; }
+
+.tile2 {
+  background-color: #eee; }
+
+.tile4 {
+  background-color: #eec; }
+
+.tile8 {
+  color: #ffe;
+  background-color: #fb8; }
+
+.tile16 {
+  color: #ffe;
+  background-color: #f96; }
+
+.tile32 {
+  color: #ffe;
+  background-color: #f75; }
+
+.tile64 {
+  color: #ffe;
+  background-color: #f53; }
+
+.tile128 {
+  color: #ffe;
+  background-color: #ec7;
+  font-size: 45px; }
+
+.tile256 {
+  color: #ffe;
+  background-color: #ec6;
+  font-size: 45px; }
+
+.tile512 {
+  color: #ffe;
+  background-color: #ec5;
+  font-size: 45px; }
+
+.tile1024 {
+  color: #fff;
+  background-color: #ec3;
+  font-size: 35px; }
+
+.tile2048 {
+  color: #fff;
+  background-color: #ec2;
+  font-size: 35px; }
+
+.tile {
+  position: absolute; }
+
+.tile.merged {
+  display: none; }
+
+.tile.merged.isMoving {
+  display: inline; }
+
+.tile.new {
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
+  -webkit-animation-name: newTile;
+          animation-name: newTile;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.15s;
+          animation-delay: 0.15s;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0); }
+
+@-webkit-keyframes newTile {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes newTile {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
