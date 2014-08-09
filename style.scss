@@ -17,12 +17,12 @@
       }
     } @else {
       .#{$name} {
-        -webkit-animation-duration: 0.20s;
-        -webkit-animation-name: $name;
-        -webkit-animation-fill-mode: forwards;
+        animation-duration: 0.20s;
+        animation-name: $name;
+        animation-fill-mode: forwards;
       }
 
-      @-webkit-keyframes $name {
+      @keyframes $name {
         from {
           top: 110 * $fromRow + 5;
         }
@@ -44,12 +44,12 @@
       }
     } @else {
       .#{$name} {
-        -webkit-animation-duration: 0.20s;
-        -webkit-animation-name: $name;
-        -webkit-animation-fill-mode: forwards;
+        animation-duration: 0.20s;
+        animation-name: $name;
+        animation-fill-mode: forwards;
       }
 
-      @-webkit-keyframes $name {
+      @keyframes $name {
         from {
           left: 110 * $fromColumn + 5;
         }

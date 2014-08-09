@@ -1,0 +1,14 @@
+{
+  "name": "2048-react",
+  "version": "0.1.0",
+  "description": "A 2048 clone written with React and SASS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IvanVergiliev/2048-react"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-autoprefixer": "0.0.8",
+    "gulp-sass": "^0.7.2"
+  }
+}

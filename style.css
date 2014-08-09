@@ -66,9 +66,12 @@
   top: 5; }
 
 .row_from_0_to_1 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: row_from_0_to_1;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: row_from_0_to_1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes row_from_0_to_1 {
   from {
@@ -76,10 +79,21 @@
 
   to {
     top: 115; } }
+
+@keyframes row_from_0_to_1 {
+  from {
+    top: 5; }
+
+  to {
+    top: 115; } }
+
 .row_from_0_to_2 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: row_from_0_to_2;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: row_from_0_to_2;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes row_from_0_to_2 {
   from {
@@ -87,10 +101,21 @@
 
   to {
     top: 225; } }
+
+@keyframes row_from_0_to_2 {
+  from {
+    top: 5; }
+
+  to {
+    top: 225; } }
+
 .row_from_0_to_3 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: row_from_0_to_3;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: row_from_0_to_3;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes row_from_0_to_3 {
   from {
@@ -98,10 +123,21 @@
 
   to {
     top: 335; } }
+
+@keyframes row_from_0_to_3 {
+  from {
+    top: 5; }
+
+  to {
+    top: 335; } }
+
 .row_from_1_to_0 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: row_from_1_to_0;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: row_from_1_to_0;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes row_from_1_to_0 {
   from {
@@ -109,13 +145,24 @@
 
   to {
     top: 5; } }
+
+@keyframes row_from_1_to_0 {
+  from {
+    top: 115; }
+
+  to {
+    top: 5; } }
+
 .row_from_1_to_1 {
   top: 115; }
 
 .row_from_1_to_2 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: row_from_1_to_2;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: row_from_1_to_2;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes row_from_1_to_2 {
   from {
@@ -123,10 +170,21 @@
 
   to {
     top: 225; } }
+
+@keyframes row_from_1_to_2 {
+  from {
+    top: 115; }
+
+  to {
+    top: 225; } }
+
 .row_from_1_to_3 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: row_from_1_to_3;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: row_from_1_to_3;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes row_from_1_to_3 {
   from {
@@ -134,10 +192,21 @@
 
   to {
     top: 335; } }
+
+@keyframes row_from_1_to_3 {
+  from {
+    top: 115; }
+
+  to {
+    top: 335; } }
+
 .row_from_2_to_0 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: row_from_2_to_0;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: row_from_2_to_0;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes row_from_2_to_0 {
   from {
@@ -145,10 +214,21 @@
 
   to {
     top: 5; } }
+
+@keyframes row_from_2_to_0 {
+  from {
+    top: 225; }
+
+  to {
+    top: 5; } }
+
 .row_from_2_to_1 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: row_from_2_to_1;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: row_from_2_to_1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes row_from_2_to_1 {
   from {
@@ -156,13 +236,24 @@
 
   to {
     top: 115; } }
+
+@keyframes row_from_2_to_1 {
+  from {
+    top: 225; }
+
+  to {
+    top: 115; } }
+
 .row_from_2_to_2 {
   top: 225; }
 
 .row_from_2_to_3 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: row_from_2_to_3;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: row_from_2_to_3;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes row_from_2_to_3 {
   from {
@@ -170,10 +261,21 @@
 
   to {
     top: 335; } }
+
+@keyframes row_from_2_to_3 {
+  from {
+    top: 225; }
+
+  to {
+    top: 335; } }
+
 .row_from_3_to_0 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: row_from_3_to_0;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: row_from_3_to_0;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes row_from_3_to_0 {
   from {
@@ -181,10 +283,21 @@
 
   to {
     top: 5; } }
+
+@keyframes row_from_3_to_0 {
+  from {
+    top: 335; }
+
+  to {
+    top: 5; } }
+
 .row_from_3_to_1 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: row_from_3_to_1;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: row_from_3_to_1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes row_from_3_to_1 {
   from {
@@ -192,10 +305,21 @@
 
   to {
     top: 115; } }
+
+@keyframes row_from_3_to_1 {
+  from {
+    top: 335; }
+
+  to {
+    top: 115; } }
+
 .row_from_3_to_2 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: row_from_3_to_2;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: row_from_3_to_2;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes row_from_3_to_2 {
   from {
@@ -203,6 +327,14 @@
 
   to {
     top: 225; } }
+
+@keyframes row_from_3_to_2 {
+  from {
+    top: 335; }
+
+  to {
+    top: 225; } }
+
 .row_from_3_to_3 {
   top: 335; }
 
@@ -210,9 +342,12 @@
   left: 5; }
 
 .column_from_0_to_1 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: column_from_0_to_1;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: column_from_0_to_1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes column_from_0_to_1 {
   from {
@@ -220,10 +355,21 @@
 
   to {
     left: 115; } }
+
+@keyframes column_from_0_to_1 {
+  from {
+    left: 5; }
+
+  to {
+    left: 115; } }
+
 .column_from_0_to_2 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: column_from_0_to_2;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: column_from_0_to_2;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes column_from_0_to_2 {
   from {
@@ -231,10 +377,21 @@
 
   to {
     left: 225; } }
+
+@keyframes column_from_0_to_2 {
+  from {
+    left: 5; }
+
+  to {
+    left: 225; } }
+
 .column_from_0_to_3 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: column_from_0_to_3;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: column_from_0_to_3;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes column_from_0_to_3 {
   from {
@@ -242,10 +399,21 @@
 
   to {
     left: 335; } }
+
+@keyframes column_from_0_to_3 {
+  from {
+    left: 5; }
+
+  to {
+    left: 335; } }
+
 .column_from_1_to_0 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: column_from_1_to_0;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: column_from_1_to_0;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes column_from_1_to_0 {
   from {
@@ -253,13 +421,24 @@
 
   to {
     left: 5; } }
+
+@keyframes column_from_1_to_0 {
+  from {
+    left: 115; }
+
+  to {
+    left: 5; } }
+
 .column_from_1_to_1 {
   left: 115; }
 
 .column_from_1_to_2 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: column_from_1_to_2;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: column_from_1_to_2;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes column_from_1_to_2 {
   from {
@@ -267,10 +446,21 @@
 
   to {
     left: 225; } }
+
+@keyframes column_from_1_to_2 {
+  from {
+    left: 115; }
+
+  to {
+    left: 225; } }
+
 .column_from_1_to_3 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: column_from_1_to_3;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: column_from_1_to_3;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes column_from_1_to_3 {
   from {
@@ -278,10 +468,21 @@
 
   to {
     left: 335; } }
+
+@keyframes column_from_1_to_3 {
+  from {
+    left: 115; }
+
+  to {
+    left: 335; } }
+
 .column_from_2_to_0 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: column_from_2_to_0;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: column_from_2_to_0;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes column_from_2_to_0 {
   from {
@@ -289,10 +490,21 @@
 
   to {
     left: 5; } }
+
+@keyframes column_from_2_to_0 {
+  from {
+    left: 225; }
+
+  to {
+    left: 5; } }
+
 .column_from_2_to_1 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: column_from_2_to_1;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: column_from_2_to_1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes column_from_2_to_1 {
   from {
@@ -300,13 +512,24 @@
 
   to {
     left: 115; } }
+
+@keyframes column_from_2_to_1 {
+  from {
+    left: 225; }
+
+  to {
+    left: 115; } }
+
 .column_from_2_to_2 {
   left: 225; }
 
 .column_from_2_to_3 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: column_from_2_to_3;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: column_from_2_to_3;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes column_from_2_to_3 {
   from {
@@ -314,10 +537,21 @@
 
   to {
     left: 335; } }
+
+@keyframes column_from_2_to_3 {
+  from {
+    left: 225; }
+
+  to {
+    left: 335; } }
+
 .column_from_3_to_0 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: column_from_3_to_0;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: column_from_3_to_0;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes column_from_3_to_0 {
   from {
@@ -325,10 +559,21 @@
 
   to {
     left: 5; } }
+
+@keyframes column_from_3_to_0 {
+  from {
+    left: 335; }
+
+  to {
+    left: 5; } }
+
 .column_from_3_to_1 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: column_from_3_to_1;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: column_from_3_to_1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes column_from_3_to_1 {
   from {
@@ -336,10 +581,21 @@
 
   to {
     left: 115; } }
+
+@keyframes column_from_3_to_1 {
+  from {
+    left: 335; }
+
+  to {
+    left: 115; } }
+
 .column_from_3_to_2 {
-  -webkit-animation-duration: 0.20s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-name: column_from_3_to_2;
-  -webkit-animation-fill-mode: forwards; }
+          animation-name: column_from_3_to_2;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
 
 @-webkit-keyframes column_from_3_to_2 {
   from {
@@ -347,5 +603,13 @@
 
   to {
     left: 225; } }
+
+@keyframes column_from_3_to_2 {
+  from {
+    left: 335; }
+
+  to {
+    left: 225; } }
+
 .column_from_3_to_3 {
   left: 335; }
