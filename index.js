@@ -43,28 +43,26 @@ var Cell = React.createClass({
 });
 
 var TileView = React.createClass({
-  componentDidUpdate: function () {
-    if (this.props.tile.oldRow == -1) {
-      this.getDOMNode().offsetWidth = this.getDOMNode().offsetWidth;
-      this.getDOMNode().className += ' new';
-    }
-  },
-  componentDidMount: function () {
-    if (this.props.tile.oldRow == -1) {
-      this.getDOMNode().offsetWidth = this.getDOMNode().offsetWidth;
-      this.getDOMNode().className += ' new';
-    }
-  },
   render: function () {
     var tile = this.props.tile;
     var classByValue = 'tile' + this.props.tile.value;
-    var classByPosition = 'position_' + tile.row + '_' + tile.column;
-    var classes = React.addons.classSet('tile', classByValue, classByPosition);
     if (tile.mergedInto) {
-      classes += ' merged';
+      var classByPosition = '';
+    } else {
+      var classByPosition = 'position_' + tile.row + '_' + tile.column;
+    }
+    var classes = React.addons.classSet('tile', classByValue, classByPosition);
+    classes += tile.mergedInto ? ' merged' : '';
+    if (tile.oldRow == -1 && !tile.mergedInto) {
+      classes += ' new';
+    }
+    if (tile.hasMoved()) {
+      classes += ' move_from_' + (tile.fromRow()) + '_' + (tile.fromColumn())
+        + '_to_' + tile.toRow() + '_' + tile.toColumn();
+      classes += ' isMoving';
     }
     return (
-      <span className={classes}>{this.props.tile.value}</span>
+      <span className={classes} key={tile.id}>{tile.value}</span>
     );
   }
 });

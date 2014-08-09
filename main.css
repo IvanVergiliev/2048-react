@@ -119,10 +119,16 @@ body {
   display: none;
 }
 
+.tile.merged.isMoving {
+  display: inline;
+}
+
 .tile.new {
   -webkit-animation-duration: 0.20s;
   -webkit-animation-name: newTile;
   -webkit-animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.15s;
+  transform: scale(0);
 }
 
 @-webkit-keyframes newTile {

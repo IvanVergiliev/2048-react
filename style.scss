@@ -1,8 +1,35 @@
 @for $row from 0 through 3 {
   @for $column from 0 through 3 {
-    .position_#{$row}_#{$column} {
+    .position_#{$row}_#{$column}:not(.isMoving) {
       top: 110 * $row + 5;
       left: 110 * $column + 5;
+    }
+  }
+}
+
+@for $fromRow from 0 through 3 {
+  @for $fromColumn from 0 through 3 {
+    @for $toRow from 0 through 3 {
+      @for $toColumn from 0 through 3 {
+        $name: move_from_#{$fromRow}_#{$fromColumn}_to_#{$toRow}_#{$toColumn};
+
+        .#{$name} {
+          -webkit-animation-duration: 0.20s;
+          -webkit-animation-name: $name;
+          -webkit-animation-fill-mode: forwards;
+        }
+
+        @-webkit-keyframes $name {
+          from {
+            top: 110 * $fromRow + 5;
+            left: 110 * $fromColumn + 5;
+          }
+          to {
+            top: 110 * $toRow + 5;
+            left: 110 * $toColumn + 5;
+          }
+        }
+      }
     }
   }
 }
