@@ -57,8 +57,8 @@ var TileView = React.createClass({
       classes += ' new';
     }
     if (tile.hasMoved()) {
-      classes += ' move_from_' + (tile.fromRow()) + '_' + (tile.fromColumn())
-        + '_to_' + tile.toRow() + '_' + tile.toColumn();
+      classes += ' row_from_' + tile.fromRow() + '_to_' + tile.toRow();
+      classes += ' column_from_' + tile.fromColumn() + '_to_' + tile.toColumn();
       classes += ' isMoving';
     }
     return (
