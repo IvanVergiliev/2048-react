@@ -64,6 +64,7 @@ var Board = function () {
   }
   this.addRandomTile();
   this.setPositions();
+  this.won = false;
 };
 
 Board.prototype.addTile = function () {
@@ -91,6 +92,7 @@ Board.prototype.moveLeft = function () {
         targetTile.value += tile2.value;
       }
       resultRow[target] = targetTile;
+      this.won |= (targetTile.value == 2048);
       hasChanged |= (targetTile.value != this.cells[row][target].value);
     }
     this.cells[row] = resultRow;
@@ -144,4 +146,29 @@ Board.prototype.move = function (direction) {
 Board.prototype.clearOldTiles = function () {
   this.tiles = this.tiles.filter(function (tile) { return tile.markForDeletion == false; });
   this.tiles.forEach(function (tile) { tile.markForDeletion = true; });
+};
+
+Board.prototype.hasWon = function () {
+  return this.won;
+};
+
+Board.deltaX = [-1, 0, 1, 0];
+Board.deltaY = [0, -1, 0, 1];
+
+Board.prototype.hasLost = function () {
+  var canMove = false;
+  for (var row = 0; row < Board.size; ++row) {
+    for (var column = 0; column < Board.size; ++column) {
+      canMove |= (this.cells[row][column].value == 0);
+      for (var dir = 0; dir < 4; ++dir) {
+        var newRow = row + Board.deltaX[dir];
+        var newColumn = column + Board.deltaY[dir];
+        if (newRow < 0 || newRow >= Board.size || newColumn < 0 || newColumn >= Board.size) {
+          continue;
+        }
+        canMove |= (this.cells[row][column].value == this.cells[newRow][newColumn].value);
+      }
+    }
+  }
+  return !canMove;
 };

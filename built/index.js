@@ -5,6 +5,9 @@ var BoardView = React.createClass({displayName: 'BoardView',
     return {board: new Board};
   },
   handleKeyDown: function (event) {
+    if (this.state.board.hasWon()) {
+      return;
+    }
     if (event.keyCode >= 37 && event.keyCode <= 40) {
       event.preventDefault();
       var direction = event.keyCode - 37;
@@ -12,6 +15,9 @@ var BoardView = React.createClass({displayName: 'BoardView',
     }
   },
   handleTouchStart: function (event) {
+    if (this.state.board.hasWon()) {
+      return;
+    }
     if (event.touches.length != 1) {
       return;
     }
@@ -21,6 +27,9 @@ var BoardView = React.createClass({displayName: 'BoardView',
     event.preventDefault();
   },
   handleTouchEnd: function (event) {
+    if (this.state.board.hasWon()) {
+      return;
+    }
     if (event.changedTouches.length != 1) {
       return;
     }
@@ -55,7 +64,8 @@ var BoardView = React.createClass({displayName: 'BoardView',
     return (
       React.DOM.div({className: "board", onTouchStart: this.handleTouchStart, onTouchEnd: this.handleTouchEnd, tabIndex: "1"}, 
         cells, 
-        tiles
+        tiles, 
+        GameEndOverlay({board: this.state.board})
       )
     );
   }
@@ -104,6 +114,26 @@ var TileView = React.createClass({displayName: 'TileView',
     return (
       React.DOM.span({className: classes, key: tile.id}, tile.value)
     );
+  }
+});
+
+var GameEndOverlay = React.createClass({displayName: 'GameEndOverlay',
+  render: function () {
+    var board = this.props.board;
+    var contents = '';
+    if (board.hasWon()) {
+      contents = 'Good Job!';
+    } else if (board.hasLost()) {
+      contents = 'Game Over';
+    }
+    if (!contents) {
+      return null;
+    }
+    return (
+      React.DOM.div({className: "overlay"}, 
+        contents
+      )
+    )
   }
 });
 

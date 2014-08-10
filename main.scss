@@ -126,7 +126,7 @@ body {
   display: inline;
 }
 
-.tile.new {
+.tile.new, .overlay {
   animation-duration: 0.20s;
   animation-name: newTile;
   animation-fill-mode: forwards;
@@ -142,4 +142,21 @@ body {
   to {
     transform: scale(1);
   }
+}
+
+.overlay {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  left: 0px;
+  right: 0px;
+  font-size: 55px;
+  font-weight: bolder;
+  background-color: #ddd;
+  opacity: 0.5;
+  border-radius: 7px;
 }
