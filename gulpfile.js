@@ -1,8 +1,10 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
+var react = require('gulp-react');
 
 var styles = './*.scss';
+var scripts = 'src/*.js';
 
 gulp.task('styles', function () {
   return gulp.src(styles)
@@ -11,8 +13,15 @@ gulp.task('styles', function () {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('watch', function () {
-  gulp.watch(styles, ['styles']);
+gulp.task('jsx', function () {
+  return gulp.src(scripts)
+    .pipe(react())
+    .pipe(gulp.dest('built'));
 });
 
-gulp.task('default', ['watch', 'styles']);
+gulp.task('watch', function () {
+  gulp.watch(styles, ['styles']);
+  gulp.watch(scripts, ['jsx']);
+});
+
+gulp.task('default', ['watch', 'styles', 'jsx']);
