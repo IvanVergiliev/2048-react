@@ -138,6 +138,7 @@ Board.prototype.move = function (direction) {
     this.addRandomTile();
   }
   this.setPositions();
+  return this;
 };
 
 Board.prototype.clearOldTiles = function () {
