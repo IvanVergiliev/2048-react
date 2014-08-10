@@ -31,6 +31,10 @@ Tile.prototype.moveTo = function (row, column) {
   this.column = column;
 };
 
+Tile.prototype.isNew = function () {
+  return this.oldRow == -1 && !this.mergedInto;
+};
+
 Tile.prototype.hasMoved = function () {
   return (this.fromRow() != -1 && (this.fromRow() != this.toRow() || this.fromColumn() != this.toColumn())) ||
     this.mergedInto;

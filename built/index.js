@@ -16,7 +16,7 @@ var BoardView = React.createClass({displayName: 'BoardView',
   },
   render: function () {
     var cells = this.state.board.cells.map(function (row) {
-      return React.DOM.div(null, row.map(function (tile) {return Cell({value: tile.value}); }));
+      return React.DOM.div(null, row.map(function () {return Cell(null); }));
     });
     var tiles = this.state.board.tiles.filter(function (tile) {
       return tile.value != 0;
@@ -33,16 +33,26 @@ var BoardView = React.createClass({displayName: 'BoardView',
 });
 
 var Cell = React.createClass({displayName: 'Cell',
+  shouldComponentUpdate: function () {
+    return false;
+  },
   render: function () {
-    var classByValue = 'cell' + this.props.value;
-    var classes = React.addons.classSet('cell', classByValue);
     return (
-      React.DOM.span({className: classes}, '')
+      React.DOM.span({className: "cell"}, '')
     );
   }
 });
 
 var TileView = React.createClass({displayName: 'TileView',
+  shouldComponentUpdate: function (nextProps) {
+    if (this.props.tile != nextProps.tile) {
+      return true;
+    }
+    if (!nextProps.tile.hasMoved() && !nextProps.tile.isNew()) {
+      return false;
+    }
+    return true;
+  },
   render: function () {
     var tile = this.props.tile;
     var classByValue = 'tile' + this.props.tile.value;
