@@ -5,12 +5,23 @@
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
+  font-family: "Clear Sans", sans-serif;
+  font-size: 21px;
+}
+
+.text {
+  order: 2;
+  padding-top: 40px;
+  width: 440px;
+  font-weight: bold;
 }
 
 .board {
+  order: 1;
   width: 440px;
   height: 440px;
   padding: 5px;
