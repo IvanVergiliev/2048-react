@@ -4,15 +4,19 @@ var BoardView = React.createClass({displayName: 'BoardView',
   getInitialState: function () {
     return {board: new Board};
   },
-  handleKeyUp: function (event) {
+  handleKeyDown: function (event) {
     if (event.keyCode >= 37 && event.keyCode <= 40) {
+      event.preventDefault();
       var direction = event.keyCode - 37;
       this.state.board.move(direction);
       this.setState({board: this.state.board});
     }
   },
   componentDidMount: function () {
-    this.getDOMNode().focus();
+    window.addEventListener('keydown', this.handleKeyDown);
+  },
+  componentWillUnmount: function () {
+    window.removeEventListener('keydown', this.handleKeyDown);
   },
   render: function () {
     var cells = this.state.board.cells.map(function (row) {
@@ -24,7 +28,7 @@ var BoardView = React.createClass({displayName: 'BoardView',
       return TileView({tile: tile});
     });
     return (
-      React.DOM.div({className: "board", onKeyUp: this.handleKeyUp, tabIndex: "1"}, 
+      React.DOM.div({className: "board", tabIndex: "1"}, 
         cells, 
         tiles
       )
