@@ -55,22 +55,23 @@ var TileView = React.createClass({
   },
   render: function () {
     var tile = this.props.tile;
-    var classByValue = 'tile' + this.props.tile.value;
-    if (tile.mergedInto) {
-      var classByPosition = '';
-    } else {
-      var classByPosition = 'position_' + tile.row + '_' + tile.column;
+    var classArray = ['tile'];
+    classArray.push('tile' + this.props.tile.value);
+    if (!tile.mergedInto) {
+      classArray.push('position_' + tile.row + '_' + tile.column);
     }
-    var classes = React.addons.classSet('tile', classByValue, classByPosition);
-    classes += tile.mergedInto ? ' merged' : '';
-    if (tile.oldRow == -1 && !tile.mergedInto) {
-      classes += ' new';
+    if (tile.mergedInto) {
+      classArray.push('merged');
+    }
+    if (tile.isNew()) {
+      classArray.push('new');
     }
     if (tile.hasMoved()) {
-      classes += ' row_from_' + tile.fromRow() + '_to_' + tile.toRow();
-      classes += ' column_from_' + tile.fromColumn() + '_to_' + tile.toColumn();
-      classes += ' isMoving';
+      classArray.push('row_from_' + tile.fromRow() + '_to_' + tile.toRow());
+      classArray.push('column_from_' + tile.fromColumn() + '_to_' + tile.toColumn());
+      classArray.push('isMoving');
     }
+    var classes = React.addons.classSet.apply(null, classArray);
     return (
       <span className={classes} key={tile.id}>{tile.value}</span>
     );
