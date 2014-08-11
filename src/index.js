@@ -23,7 +23,6 @@ var BoardView = React.createClass({
     }
     this.startX = event.touches[0].screenX;
     this.startY = event.touches[0].screenY;
-    console.log(this);
     event.preventDefault();
   },
   handleTouchEnd: function (event) {
@@ -35,7 +34,6 @@ var BoardView = React.createClass({
     }
     var deltaX = event.changedTouches[0].screenX - this.startX;
     var deltaY = event.changedTouches[0].screenY - this.startY;
-    console.log(deltaX, deltaY);
     var direction = -1;
     if (Math.abs(deltaX) > 3 * Math.abs(deltaY) && Math.abs(deltaX) > 30) {
       direction = deltaX > 0 ? 2 : 0;
