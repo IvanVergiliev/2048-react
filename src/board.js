@@ -112,6 +112,8 @@ Board.prototype.setPositions = function () {
   });
 };
 
+Board.fourProbability = 0.1;
+
 Board.prototype.addRandomTile = function () {
   var emptyCells = [];
   for (var r = 0; r < Board.size; ++r) {
@@ -123,7 +125,8 @@ Board.prototype.addRandomTile = function () {
   }
   var index = ~~(Math.random() * emptyCells.length);
   var cell = emptyCells[index];
-  this.cells[cell.r][cell.c] = this.addTile(2);
+  var newValue = Math.random() < Board.fourProbability ? 4 : 2;
+  this.cells[cell.r][cell.c] = this.addTile(newValue);
 };
 
 Board.prototype.move = function (direction) {
