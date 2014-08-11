@@ -3,14 +3,14 @@ var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
 var react = require('gulp-react');
 
-var styles = './*.scss';
+var styles = 'src/*.scss';
 var scripts = 'src/*.js';
 
 gulp.task('styles', function () {
   return gulp.src(styles)
     .pipe(sass())
     .pipe(prefix('last 2 versions', '> 1%', 'ie 8', 'ie 7'))
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest('built'));
 });
 
 gulp.task('jsx', function () {
