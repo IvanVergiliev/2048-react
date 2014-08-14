@@ -4,6 +4,9 @@ var BoardView = React.createClass({
   getInitialState: function () {
     return {board: new Board};
   },
+  restartGame: function () {
+    this.setState(this.getInitialState());
+  },
   handleKeyDown: function (event) {
     if (this.state.board.hasWon()) {
       return;
@@ -63,7 +66,7 @@ var BoardView = React.createClass({
       <div className='board' onTouchStart={this.handleTouchStart} onTouchEnd={this.handleTouchEnd} tabIndex="1">
         {cells}
         {tiles}
-        <GameEndOverlay board={this.state.board} />
+        <GameEndOverlay board={this.state.board} onRestart={this.restartGame} />
       </div>
     );
   }
@@ -129,7 +132,8 @@ var GameEndOverlay = React.createClass({
     }
     return (
       <div className='overlay'>
-        {contents}
+        <p className='message'>{contents}</p>
+        <button className="tryAgain" onClick={this.props.onRestart}>Try again</button>
       </div>
     )
   }
