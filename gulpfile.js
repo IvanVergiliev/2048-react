@@ -25,3 +25,5 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', ['watch', 'styles', 'jsx']);
+
+gulp.task('build', ['styles', 'jsx']);
