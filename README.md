@@ -18,3 +18,20 @@ The [TileView](https://github.com/IvanVergiliev/2048-react/blob/30455294382b403a
 The animations are implemented in CSS3. Since there is a separate class for each movement from cell A to cell B, those classes cannot be written directly in CSS (or, at least, it would be really suboptimal) and have to be generated. This happens with SASS in [style.scss](https://github.com/IvanVergiliev/2048-react/blob/30455294382b403ad8944c473d5f1f06d5813096/src/style.scss).
 
 One optimization used to minimize the generated CSS size was to separate the tile movement into row and column movement. That is, instead of generating a separate animation for each quadruple `(startRow, startColumn)` -> `(endRow, endColumn)` (as can be seen [here](https://github.com/IvanVergiliev/2048-react/blob/e001a9dbe89e69540cb619f98e9f38c7dfb80e1a/style.scss#L10-L35)), the observation is made that every movement is either completely horizontal or completely vertical. This means that there can be 2*4^2 animations of the form `(startRow)` -> `(endRow)` and `(startColumn)` -> `(endColumn)` instead of 4^4 animations of the other form. This decreased the generated CSS size from about 70KB  to about 10KB.
+
+
+## Building and running
+
+To run, simply start a web server serving the main project directory. For example, using ```node-static```, you can do
+
+    npm install -g node-static
+    static -p 8000
+    
+and the game will be accessible on ```localhost:8000```.
+
+If you change a file which needs to be rebuilt (that is, any file inside the ```src``` dir), you need to run ```gulp```.
+
+    npm install -g gulp
+    npm install
+    gulp build   # to rebuild the files once, or
+    gulp   # to watch the files for changes and rebuild continously.
