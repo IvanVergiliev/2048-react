@@ -1,5 +1,3 @@
-/** @jsx React.DOM */
-
 var BoardView = React.createClass({
   getInitialState: function () {
     return {board: new Board};

@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
-var react = require('gulp-react');
+var babel = require('gulp-babel');
 
 var styles = 'src/*.scss';
 var scripts = 'src/*.js';
@@ -15,7 +15,9 @@ gulp.task('styles', function () {
 
 gulp.task('jsx', function () {
   return gulp.src(scripts)
-    .pipe(react())
+    .pipe(babel({
+      presets: ['es2015', 'react']
+    }))
     .pipe(gulp.dest('built'));
 });
 
