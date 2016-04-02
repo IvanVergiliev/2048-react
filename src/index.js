@@ -142,5 +142,4 @@ class GameEndOverlay extends React.Component {
   }
 }
 
-React.initializeTouchEvents(true);
-React.render(<BoardView />, document.getElementById('boardDiv'));
+ReactDOM.render(<BoardView />, document.getElementById('boardDiv'));

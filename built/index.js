@@ -233,5 +233,4 @@ var GameEndOverlay = function (_React$Component4) {
   return GameEndOverlay;
 }(React.Component);
 
-React.initializeTouchEvents(true);
-React.render(React.createElement(BoardView, null), document.getElementById('boardDiv'));
+ReactDOM.render(React.createElement(BoardView, null), document.getElementById('boardDiv'));
