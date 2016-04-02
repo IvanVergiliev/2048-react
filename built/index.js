@@ -84,19 +84,19 @@ var BoardView = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var cells = this.state.board.cells.map(function (row) {
+      var cells = this.state.board.cells.map(function (row, rowIndex) {
         return React.createElement(
           'div',
-          null,
-          row.map(function () {
-            return React.createElement(Cell, null);
+          { key: rowIndex },
+          row.map(function (_, columnIndex) {
+            return React.createElement(Cell, { key: rowIndex * Board.size + columnIndex });
           })
         );
       });
       var tiles = this.state.board.tiles.filter(function (tile) {
         return tile.value != 0;
       }).map(function (tile) {
-        return React.createElement(TileView, { tile: tile });
+        return React.createElement(TileView, { tile: tile, key: tile.id });
       });
       return React.createElement(
         'div',
@@ -182,7 +182,7 @@ var TileView = function (_React$Component3) {
       var classes = classArray.join(' ');
       return React.createElement(
         'span',
-        { className: classes, key: tile.id },
+        { className: classes },
         tile.value
       );
     }
