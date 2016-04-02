@@ -1,11 +1,12 @@
-var BoardView = React.createClass({
-  getInitialState: function () {
-    return {board: new Board};
-  },
-  restartGame: function () {
-    this.setState(this.getInitialState());
-  },
-  handleKeyDown: function (event) {
+class BoardView extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {board: new Board};
+  }
+  restartGame() {
+    this.setState({board: new Board});
+  }
+  handleKeyDown(event) {
     if (this.state.board.hasWon()) {
       return;
     }
@@ -14,8 +15,8 @@ var BoardView = React.createClass({
       var direction = event.keyCode - 37;
       this.setState({board: this.state.board.move(direction)});
     }
-  },
-  handleTouchStart: function (event) {
+  }
+  handleTouchStart(event) {
     if (this.state.board.hasWon()) {
       return;
     }
@@ -25,8 +26,8 @@ var BoardView = React.createClass({
     this.startX = event.touches[0].screenX;
     this.startY = event.touches[0].screenY;
     event.preventDefault();
-  },
-  handleTouchEnd: function (event) {
+  }
+  handleTouchEnd(event) {
     if (this.state.board.hasWon()) {
       return;
     }
@@ -44,14 +45,14 @@ var BoardView = React.createClass({
     if (direction != -1) {
       this.setState({board: this.state.board.move(direction)});
     }
-  },
-  componentDidMount: function () {
-    window.addEventListener('keydown', this.handleKeyDown);
-  },
-  componentWillUnmount: function () {
-    window.removeEventListener('keydown', this.handleKeyDown);
-  },
-  render: function () {
+  }
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleKeyDown.bind(this));
+  }
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleKeyDown.bind(this));
+  }
+  render() {
     var cells = this.state.board.cells.map(function (row) {
       return <div>{row.map(function () {return <Cell />; })}</div>;
     });
@@ -64,25 +65,25 @@ var BoardView = React.createClass({
       <div className='board' onTouchStart={this.handleTouchStart} onTouchEnd={this.handleTouchEnd} tabIndex="1">
         {cells}
         {tiles}
-        <GameEndOverlay board={this.state.board} onRestart={this.restartGame} />
+        <GameEndOverlay board={this.state.board} onRestart={this.restartGame.bind(this)} />
       </div>
     );
   }
-});
+}
 
-var Cell = React.createClass({
-  shouldComponentUpdate: function () {
+class Cell extends React.Component {
+  shouldComponentUpdate() {
     return false;
-  },
-  render: function () {
+  }
+  render() {
     return (
       <span className='cell'>{''}</span>
     );
   }
-});
+}
 
-var TileView = React.createClass({
-  shouldComponentUpdate: function (nextProps) {
+class TileView extends React.Component {
+  shouldComponentUpdate(nextProps) {
     if (this.props.tile != nextProps.tile) {
       return true;
     }
@@ -90,8 +91,8 @@ var TileView = React.createClass({
       return false;
     }
     return true;
-  },
-  render: function () {
+  }
+  render() {
     var tile = this.props.tile;
     var classArray = ['tile'];
     classArray.push('tile' + this.props.tile.value);
@@ -114,10 +115,10 @@ var TileView = React.createClass({
       <span className={classes} key={tile.id}>{tile.value}</span>
     );
   }
-});
+}
 
-var GameEndOverlay = React.createClass({
-  render: function () {
+class GameEndOverlay extends React.Component {
+  render() {
     var board = this.props.board;
     var contents = '';
     if (board.hasWon()) {
@@ -135,7 +136,7 @@ var GameEndOverlay = React.createClass({
       </div>
     )
   }
-});
+}
 
 React.initializeTouchEvents(true);
-React.renderComponent(<BoardView />, document.getElementById('boardDiv'));
+React.render(<BoardView />, document.getElementById('boardDiv'));
