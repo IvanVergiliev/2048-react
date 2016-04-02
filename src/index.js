@@ -110,7 +110,7 @@ class TileView extends React.Component {
       classArray.push('column_from_' + tile.fromColumn() + '_to_' + tile.toColumn());
       classArray.push('isMoving');
     }
-    var classes = React.addons.classSet.apply(null, classArray);
+    var classes = classArray.join(' ');
     return (
       <span className={classes} key={tile.id}>{tile.value}</span>
     );

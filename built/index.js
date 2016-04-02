@@ -179,7 +179,7 @@ var TileView = function (_React$Component3) {
         classArray.push('column_from_' + tile.fromColumn() + '_to_' + tile.toColumn());
         classArray.push('isMoving');
       }
-      var classes = React.addons.classSet.apply(null, classArray);
+      var classes = classArray.join(' ');
       return React.createElement(
         'span',
         { className: classes, key: tile.id },
