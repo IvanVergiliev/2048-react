@@ -191,46 +191,33 @@ var TileView = function (_React$Component3) {
   return TileView;
 }(React.Component);
 
-var GameEndOverlay = function (_React$Component4) {
-  _inherits(GameEndOverlay, _React$Component4);
+var GameEndOverlay = function GameEndOverlay(_ref) {
+  var board = _ref.board;
+  var onRestart = _ref.onRestart;
 
-  function GameEndOverlay() {
-    _classCallCheck(this, GameEndOverlay);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(GameEndOverlay).apply(this, arguments));
+  var contents = '';
+  if (board.hasWon()) {
+    contents = 'Good Job!';
+  } else if (board.hasLost()) {
+    contents = 'Game Over';
   }
-
-  _createClass(GameEndOverlay, [{
-    key: 'render',
-    value: function render() {
-      var board = this.props.board;
-      var contents = '';
-      if (board.hasWon()) {
-        contents = 'Good Job!';
-      } else if (board.hasLost()) {
-        contents = 'Game Over';
-      }
-      if (!contents) {
-        return null;
-      }
-      return React.createElement(
-        'div',
-        { className: 'overlay' },
-        React.createElement(
-          'p',
-          { className: 'message' },
-          contents
-        ),
-        React.createElement(
-          'button',
-          { className: 'tryAgain', onClick: this.props.onRestart, onTouchEnd: this.props.onRestart },
-          'Try again'
-        )
-      );
-    }
-  }]);
-
-  return GameEndOverlay;
-}(React.Component);
+  if (!contents) {
+    return React.createElement('noscript', null);
+  }
+  return React.createElement(
+    'div',
+    { className: 'overlay' },
+    React.createElement(
+      'p',
+      { className: 'message' },
+      contents
+    ),
+    React.createElement(
+      'button',
+      { className: 'tryAgain', onClick: onRestart, onTouchEnd: onRestart },
+      'Try again'
+    )
+  );
+};
 
 ReactDOM.render(React.createElement(BoardView, null), document.getElementById('boardDiv'));
