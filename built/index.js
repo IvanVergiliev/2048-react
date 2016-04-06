@@ -202,7 +202,7 @@ var GameEndOverlay = function GameEndOverlay(_ref) {
     contents = 'Game Over';
   }
   if (!contents) {
-    return React.createElement('noscript', null);
+    return null;
   }
   return React.createElement(
     'div',

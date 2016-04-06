@@ -129,7 +129,7 @@ var GameEndOverlay = ({board, onRestart}) => {
     contents = 'Game Over';
   }
   if (!contents) {
-    return <noscript />;
+    return null;
   }
   return (
     <div className='overlay'>
