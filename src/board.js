@@ -79,7 +79,7 @@ Board.size = 4;
 Board.prototype.moveLeft = function () {
   var hasChanged = false;
   for (var row = 0; row < Board.size; ++row) {
-    var currentRow = this.cells[row].filter(function (tile) { return tile.value != 0; });
+    var currentRow = this.cells[row].filter(tile => tile.value != 0);
     var resultRow = [];
     for (var target = 0; target < Board.size; ++target) {
       var targetTile = currentRow.length ? currentRow.shift() : this.addTile();
@@ -101,8 +101,8 @@ Board.prototype.moveLeft = function () {
 };
 
 Board.prototype.setPositions = function () {
-  this.cells.forEach(function (row, rowIndex) {
-    row.forEach(function (tile, columnIndex) {
+  this.cells.forEach((row, rowIndex) => {
+    row.forEach((tile, columnIndex) => {
       tile.oldRow = tile.row;
       tile.oldColumn = tile.column;
       tile.row = rowIndex;
@@ -147,8 +147,8 @@ Board.prototype.move = function (direction) {
 };
 
 Board.prototype.clearOldTiles = function () {
-  this.tiles = this.tiles.filter(function (tile) { return tile.markForDeletion == false; });
-  this.tiles.forEach(function (tile) { tile.markForDeletion = true; });
+  this.tiles = this.tiles.filter(tile => tile.markForDeletion == false);
+  this.tiles.forEach(tile => { tile.markForDeletion = true; });
 };
 
 Board.prototype.hasWon = function () {

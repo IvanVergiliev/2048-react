@@ -53,18 +53,16 @@ class BoardView extends React.Component {
     window.removeEventListener('keydown', this.handleKeyDown.bind(this));
   }
   render() {
-    var cells = this.state.board.cells.map(function (row, rowIndex) {
+    var cells = this.state.board.cells.map((row, rowIndex) => {
       return (
         <div key={rowIndex}>
-          { row.map(function (_, columnIndex) {return <Cell key={rowIndex * Board.size + columnIndex} />; })}
+          { row.map((_, columnIndex) => <Cell key={rowIndex * Board.size + columnIndex} />) }
         </div>
       );
     });
-    var tiles = this.state.board.tiles.filter(function (tile) {
-      return tile.value != 0;
-    }).map(function (tile) {
-      return <TileView tile={tile} key={tile.id} />;
-    });
+    var tiles = this.state.board.tiles
+      .filter(tile => tile.value != 0)
+      .map(tile => <TileView tile={tile} key={tile.id} />);
     return (
       <div className='board' onTouchStart={this.handleTouchStart.bind(this)} onTouchEnd={this.handleTouchEnd.bind(this)} tabIndex="1">
         {cells}
@@ -73,7 +71,7 @@ class BoardView extends React.Component {
       </div>
     );
   }
-}
+};
 
 class Cell extends React.Component {
   shouldComponentUpdate() {
@@ -84,7 +82,7 @@ class Cell extends React.Component {
       <span className='cell'>{''}</span>
     );
   }
-}
+};
 
 class TileView extends React.Component {
   shouldComponentUpdate(nextProps) {

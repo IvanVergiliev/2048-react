@@ -111,6 +111,8 @@ var BoardView = function (_React$Component) {
   return BoardView;
 }(React.Component);
 
+;
+
 var Cell = function (_React$Component2) {
   _inherits(Cell, _React$Component2);
 
@@ -138,6 +140,8 @@ var Cell = function (_React$Component2) {
 
   return Cell;
 }(React.Component);
+
+;
 
 var TileView = function (_React$Component3) {
   _inherits(TileView, _React$Component3);
