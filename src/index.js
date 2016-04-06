@@ -66,7 +66,7 @@ class BoardView extends React.Component {
       return <TileView tile={tile} key={tile.id} />;
     });
     return (
-      <div className='board' onTouchStart={this.handleTouchStart} onTouchEnd={this.handleTouchEnd} tabIndex="1">
+      <div className='board' onTouchStart={this.handleTouchStart.bind(this)} onTouchEnd={this.handleTouchEnd.bind(this)} tabIndex="1">
         {cells}
         {tiles}
         <GameEndOverlay board={this.state.board} onRestart={this.restartGame.bind(this)} />

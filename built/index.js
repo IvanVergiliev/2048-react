@@ -100,7 +100,7 @@ var BoardView = function (_React$Component) {
       });
       return React.createElement(
         'div',
-        { className: 'board', onTouchStart: this.handleTouchStart, onTouchEnd: this.handleTouchEnd, tabIndex: '1' },
+        { className: 'board', onTouchStart: this.handleTouchStart.bind(this), onTouchEnd: this.handleTouchEnd.bind(this), tabIndex: '1' },
         cells,
         tiles,
         React.createElement(GameEndOverlay, { board: this.state.board, onRestart: this.restartGame.bind(this) })
